@@ -15,7 +15,7 @@ export default abstract class Archetype {
   get special() { return this._special; }
   get cost() { return this._cost; }
 
-  static createdRacesInstances(): number {
+  static createdArchetypesInstances(): number {
     throw new Error('Not implemented');
   }
 
