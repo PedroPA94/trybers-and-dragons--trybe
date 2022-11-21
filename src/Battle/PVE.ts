@@ -33,20 +33,16 @@ export default class PVE extends Battle {
     return this._player;
   }
 
-  private setAttackerAndEnemy(
-    turnOrder: number[], 
-    round: number, 
-  ): SimpleFighter[] {     
-    const currentAttackerPosition = turnOrder[round];
-    const attacker = this._fighters[currentAttackerPosition];
+  private setAttackerAndEnemy(attackerPosition: number): SimpleFighter[] {     
+    const attacker = this._fighters[attackerPosition];
     const enemy = this.checkEnemy(attacker);
     return [attacker, enemy];
   }
 
   private fightATurn(): void {
     const turnOrder = this.generateTurnOrder();
-    turnOrder.forEach((round) => {
-      const [attacker, enemy] = this.setAttackerAndEnemy(turnOrder, round);
+    turnOrder.forEach((attackerPosition) => {
+      const [attacker, enemy] = this.setAttackerAndEnemy(attackerPosition);
       PVE.doAttack(attacker, enemy);
     });
   }

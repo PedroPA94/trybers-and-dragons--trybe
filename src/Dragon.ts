@@ -39,21 +39,21 @@ export default class Dragon extends Monster {
   private orderedAttacks = this.attacks
     .sort((a, b) => b.requiredRoll - a.requiredRoll);
 
-  constructor(protected _lifePoints = 999, protected _strength = 100) {
-    super(_lifePoints, _strength);
+  constructor(protected _lifePoints = 999) {
+    super(_lifePoints);
   }
 
   private getDragonAttack(): DragonAttack {
     const attackRoll = Math.random();
     const dragonAttack = this.orderedAttacks
-      .find((attackOption) => attackOption.requiredRoll >= attackRoll)
+      .find((attackOption) => attackRoll >= attackOption.requiredRoll)
       || this.attacks[0];
     return dragonAttack;
   }
 
   public attack(enemy: SimpleFighter): void {
     const dragonAttack = this.getDragonAttack();
-    const attackValue = this._strength * dragonAttack.modifier;
+    const attackValue = super.strength * dragonAttack.modifier;
     console.log(dragonAttack.alert);
     enemy.receiveDamage(attackValue);
   }
