@@ -66,7 +66,8 @@ export default class Character implements Fighter {
   }
 
   public special(enemy: SimpleFighter): void {
-    console.log(enemy);
-    console.log(this._archetype);
+    console.log(`${this.name} está usando seu especial!`);
+    const superAttack = this._strength * 1.5;
+    enemy.receiveDamage(superAttack);
   }
 }
