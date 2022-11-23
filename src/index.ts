@@ -3,11 +3,11 @@ import Character from './Character';
 import Dragon from './Dragon';
 import Monster from './Monster';
 
-const player1 = new Character('');
-const player2 = new Character('');
-const player3 = new Character('');
+const player1 = new Character('Bilbo Baggins');
+const player2 = new Character('Goku');
+const player3 = new Character('Vegeta');
 
-const player1LevelUps = 50; // Must be at least level 50 to face a dragon alone!
+const player1LevelUps = 15;
 
 for (let i = 1; i <= player1LevelUps; i += 1) {
   player1.levelUp();

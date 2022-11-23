@@ -1,13 +1,14 @@
+import BattleAnnouncements from '../BattleAnnouncements';
 import Fighter from '../Fighter';
 import Battle from './Battle';
 
 export default class PVP extends Battle {
-  constructor(private _char1: Fighter, private _char2: Fighter) {
-    super(_char1);
+  constructor(readonly char1: Fighter, readonly char2: Fighter) {
+    super(char1);
   }
 
   private shuffleFighters(): Fighter[] {
-    return [this._char1, this._char2].sort(() => Math.random() - 0.5);
+    return [this.char1, this.char2].sort(() => Math.random() - 0.5);
   }
 
   private static doAttack(attacker: Fighter, enemy: Fighter): void {
@@ -27,8 +28,11 @@ export default class PVP extends Battle {
   }
 
   public fight() {
+    BattleAnnouncements.announceBattleStart(this.char1, this.char2);
     const fighters = this.shuffleFighters();
     PVP.battle(fighters);
+    BattleAnnouncements
+      .announceBattleResults(super.fight(), this.char1, this.char2);
     return super.fight();
   }
 }

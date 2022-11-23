@@ -7,6 +7,7 @@ export default class Monster implements SimpleFighter {
   get strength() { return this._strength; }
 
   public attack(enemy: SimpleFighter): void {
+    console.log('A monster attacks the hero');
     enemy.receiveDamage(this._strength);
   }
 

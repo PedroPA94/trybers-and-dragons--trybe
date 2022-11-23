@@ -50,6 +50,10 @@ export default class Character implements Fighter {
   }
 
   public attack(enemy: SimpleFighter): void {
+    const enemyName = enemy instanceof Character 
+      ? enemy.name 
+      : `a ${enemy.constructor.name.toLowerCase()}`;
+    console.log(`${this.name} is attacking ${enemyName}!`);
     enemy.receiveDamage(this._strength);
   }
 
@@ -66,7 +70,7 @@ export default class Character implements Fighter {
   }
 
   public special(enemy: SimpleFighter): void {
-    console.log(`${this.name} está usando seu especial!`);
+    console.log(`A critical roll! ${this.name} uses the special attack!`);
     const superAttack = this._strength * 1.5;
     enemy.receiveDamage(superAttack);
   }

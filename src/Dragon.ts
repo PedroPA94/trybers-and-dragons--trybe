@@ -13,25 +13,25 @@ export default class Dragon extends Monster {
     {
       name: 'stomp',
       modifier: 1,
-      alert: 'The dragon stomps the player!',
+      alert: 'The dragon stomps the hero!',
       requiredRoll: 0,
     },
     {
       name: 'tail whip',
       modifier: 1.2,
-      alert: 'The dragon whips its tail against the player!',
+      alert: 'The dragon whips its tail against the hero!',
       requiredRoll: 0.2,
     },
     {
       name: 'claw',
       modifier: 1.4,
-      alert: 'The dragon attacks the player with its sharp claws!',
+      alert: 'The dragon attacks the hero with its sharp claws!',
       requiredRoll: 0.4,
     },
     {
       name: 'spit fire',
       modifier: 2,
-      alert: 'With a thundering roar, the dragon spits fire at the player!',
+      alert: 'With a thundering roar, the dragon spits fire at the hero!',
       requiredRoll: 0.9,
     },
   ];
