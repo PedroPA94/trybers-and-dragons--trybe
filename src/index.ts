@@ -3,9 +3,9 @@ import Character from './Character';
 import Dragon from './Dragon';
 import Monster from './Monster';
 
-const player1 = new Character('Bilbo Baggins');
-const player2 = new Character('Goku');
-const player3 = new Character('Vegeta');
+const player1 = new Character('Bilbo Baggins', 'Halfling', 'Ranger');
+const player2 = new Character('Goku', 'Elf', 'Warrior');
+const player3 = new Character('Vegeta', 'Orc', 'Necromancer');
 
 const player1LevelUps = 15;
 
@@ -25,6 +25,8 @@ const runBattles = (battles: Battle[]) => {
     battle.fight();
   });
 };
+
+runBattles([pvp, pve]);
 
 export {
   player1,
